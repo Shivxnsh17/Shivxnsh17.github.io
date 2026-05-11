@@ -31,11 +31,18 @@ jobs:
         with:
           node-version: 22
 
+      - name: Prepare Content
+        run: |
+          mkdir build_content
+          cp -r "DCF" "DDM" "Relative Valuation" "Risk Calculation" "WACC" README.md build_content/
+          # Rename all README.md files to index.md so Quartz treats them as folder landing pages
+          find build_content -name "README.md" -execdir mv {} index.md \;
+
       - name: Install dependencies and Build Quartz
         working-directory: ./quartz
         run: |
           npm ci
-          npx quartz build -d ../
+          npx quartz build -d ../build_content
 
       - name: Prepare final deployment folder
         run: |
