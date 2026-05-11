@@ -31,19 +31,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Prepare Quartz Content
-        run: |
-          # Copy all the models and readmes into quartz content
-          # We copy specific folders to avoid copying quartz into quartz
-          cp -r "DCF" "DDM" "Relative Valuation" "Risk Calculation" "WACC" quartz/content/
-          # Copy the main README as the index of the notes
-          cp README.md quartz/content/index.md
-
       - name: Install dependencies and Build Quartz
         working-directory: ./quartz
         run: |
           npm ci
-          npx quartz build
+          npx quartz build -d ../
 
       - name: Prepare final deployment folder
         run: |

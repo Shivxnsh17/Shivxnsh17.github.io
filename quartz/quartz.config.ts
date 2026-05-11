@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "Shivxnsh17.github.io/Equity-Research-Models/notes",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", ".obsidian", "quartz", "docs", ".github"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
