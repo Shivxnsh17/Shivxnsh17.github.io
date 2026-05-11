@@ -2,14 +2,7 @@
 
 This directory contains Excel models for valuing companies based on the Dividend Discount Model (DDM) methodology.
 
-## Files Overview
+## Models
 
-### 1. [Dividend discount model.xlsx](./Dividend%20discount%20model.xlsx)
-A standard DDM template featuring valuations for multiple companies.
-**Valuations Included (Sheets):**
-- `Coal india`, `BHEL`, `GAIL`, `TCS`
-
-### 2. [ITC DIVIDEND DISCOUNT MODEL.xlsx](./ITC%20DIVIDEND%20DISCOUNT%20MODEL.xlsx)
-A dedicated Dividend Discount Model valuation specifically built for ITC Limited.
-**Key Sheets:**
-- `ITC`
+- [[Dividend discount model]] - A standard DDM template featuring valuations for multiple companies.
+- [[ITC DIVIDEND DISCOUNT MODEL]] - A dedicated Dividend Discount Model valuation specifically built for ITC Limited.
