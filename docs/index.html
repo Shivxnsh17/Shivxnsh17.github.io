@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivansh Chandra | FP&A & Equity Research</title>
+    <title>Shivansh Chandra | Portfolio</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -61,6 +61,17 @@
             );
         }
 
+        .chamfer-btn {
+            clip-path: polygon(
+                10px 0%, 
+                100% 0%, 
+                100% calc(100% - 10px), 
+                calc(100% - 10px) 100%, 
+                0% 100%, 
+                0% 10px
+            );
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -82,13 +93,6 @@
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
         }
-        
-        /* Grid Background Pattern */
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        }
     </style>
 </head>
 <body class="bg-darkBg antialiased relative selection:bg-accent selection:text-white">
@@ -99,49 +103,97 @@
             <div class="text-xl font-bold tracking-tighter text-white">
                 Shivansh<span class="text-accent">.</span>
             </div>
-            <div class="space-x-8 text-sm font-medium text-slate-400">
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
                 <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#work" class="hover:text-white transition-colors">Work</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects & Notes</a>
                 <a href="#contact" class="hover:text-white transition-colors">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="relative min-h-screen flex items-center justify-center pt-20 bg-grid">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-darkBg pointer-events-none"></div>
-        <div class="max-w-6xl mx-auto px-6 relative z-10 w-full">
-            <div class="max-w-3xl hero-content opacity-0">
+    <section id="about" class="relative min-h-screen flex items-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 relative w-full flex flex-col md:flex-row items-center gap-12">
+            <div class="max-w-2xl hero-content opacity-0 flex-1">
                 <div class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider text-accent uppercase bg-accent/10 chamfer-sm">
                     Financial Planning & Analysis
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-                    Decoding Markets.<br/>
-                    <span class="text-slate-500">Engineering Value.</span>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4 leading-tight">
+                    Hi, I'm <span class="text-white">Shivansh Chandra.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed">
-                    I am Shivansh Chandra, an Equity Research and FP&A professional specializing in fundamental valuation, risk calculation, and financial modeling.
+                <h2 class="text-2xl md:text-3xl text-slate-400 font-medium mb-6">
+                    Equity Research & Financial Modeling.
+                </h2>
+                <p class="text-lg text-slate-400 mb-10 leading-relaxed">
+                    I specialize in building rigorous financial models, performing deep-dive equity research, and uncovering value through fundamental analysis and risk calculations. Welcome to my digital portfolio.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#work" class="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-darkBg bg-accent hover:bg-accentHover transition-colors chamfer-sm">
-                        View Models
+                    <a href="#projects" class="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-darkBg bg-accent hover:bg-accentHover transition-colors chamfer-btn">
+                        View My Work
                     </a>
-                    <a href="https://github.com/Shivxnsh17" target="_blank" class="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors chamfer-sm">
-                        GitHub Profile
+                    <!-- NOTE: Fill in your actual resume link below -->
+                    <a href="#" class="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors chamfer-btn">
+                        Download Resume
                     </a>
+                </div>
+            </div>
+            <div class="flex-1 hero-content opacity-0 flex justify-center">
+                <!-- Decorative element for personal portfolio -->
+                <div class="relative w-64 h-64 md:w-80 md:h-80 bg-cardBg border border-white/10 chamfer flex items-center justify-center p-8">
+                    <div class="w-full h-full border border-accent/30 chamfer-sm flex items-center justify-center text-slate-600 bg-darkBg/50">
+                        <span class="text-sm uppercase tracking-widest">[ Portrait / Avatar ]</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Work Section -->
-    <section id="work" class="py-24 relative z-10">
+    <!-- Experience Section (Placeholder from Resume) -->
+    <section id="experience" class="py-24 bg-cardBg/30 border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="mb-16 section-header opacity-0 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
+                <div class="h-1 w-20 bg-accent chamfer-sm mx-auto"></div>
+            </div>
+            
+            <div class="space-y-12">
+                <!-- Experience Item 1 -->
+                <div class="work-card opacity-0 relative pl-8 border-l border-white/10 before:absolute before:left-[-5px] before:top-2 before:w-2 before:h-2 before:bg-accent before:chamfer-sm">
+                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-white">Financial Analyst</h3>
+                        <span class="text-accent text-sm font-medium uppercase tracking-wider">[Company Name] | [Dates]</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-4 mt-4 text-slate-400 space-y-2">
+                        <li>Spearheaded financial modeling and valuation methodologies including DCF and DDM for equity research.</li>
+                        <li>Evaluated stock performance and risk benchmarking against major indices such as the Nifty 50.</li>
+                        <li>(Add detailed bullet points from your resume here).</li>
+                    </ul>
+                </div>
+                
+                <!-- Experience Item 2 -->
+                <div class="work-card opacity-0 relative pl-8 border-l border-white/10 before:absolute before:left-[-5px] before:top-2 before:w-2 before:h-2 before:bg-slate-600 before:chamfer-sm">
+                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-white">[Previous Title]</h3>
+                        <span class="text-slate-400 text-sm font-medium uppercase tracking-wider">[Company Name] | [Dates]</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-4 mt-4 text-slate-400 space-y-2">
+                        <li>Analyzed financial statements and built comprehensive ratio analysis tools.</li>
+                        <li>(Add detailed bullet points from your resume here).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 relative z-10">
         <div class="max-w-6xl mx-auto px-6">
             <div class="mb-16 section-header opacity-0">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Equity Research Models</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Projects & Write-ups</h2>
                 <div class="h-1 w-20 bg-accent chamfer-sm"></div>
                 <p class="mt-4 text-slate-400 max-w-2xl">
-                    A curated collection of financial models spanning valuation methodologies, risk benchmarking, and cost of capital analysis.
+                    A collection of my financial models, documentation, and raw `.xlsx` files. These links connect directly to my interactive Quartz digital vault.
                 </p>
             </div>
 
@@ -153,10 +205,10 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors">Discounted Cash Flow</h3>
                     <p class="text-sm text-slate-400 mb-6 flex-grow">
-                        Comprehensive DCF models, practice tutorials, and step-by-step valuation exercises forecasting future cash flows.
+                        Comprehensive DCF models, practice tutorials, and step-by-step valuation exercises. Includes raw Excel models.
                     </p>
                     <a href="./notes/DCF/" class="text-sm font-medium text-accent inline-flex items-center uppercase tracking-wider">
-                        Explore DCF <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        View Models & Notes <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
 
@@ -167,10 +219,10 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors">Dividend Discount Model</h3>
                     <p class="text-sm text-slate-400 mb-6 flex-grow">
-                        Valuation models built on future dividend payments discounted to present value. Features ITC, Coal India, BHEL, GAIL, and TCS.
+                        Valuation models built on future dividend payments discounted to present value. Features ITC, Coal India, BHEL, etc.
                     </p>
                     <a href="./notes/DDM/" class="text-sm font-medium text-accent inline-flex items-center uppercase tracking-wider">
-                        Explore DDM <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        View Models & Notes <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
 
@@ -184,7 +236,7 @@
                         Comparable company analysis based on multiples (P/E, EV/EBITDA) across sectors like Pharma and Automotive.
                     </p>
                     <a href="./notes/Relative-Valuation/" class="text-sm font-medium text-accent inline-flex items-center uppercase tracking-wider">
-                        Explore Relative <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        View Models & Notes <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
 
@@ -198,7 +250,7 @@
                         Deep dive into stock performance vs Nifty 50. Includes ratio analysis (Sharpe, Treynor, Alpha) and moving averages.
                     </p>
                     <a href="./notes/Risk-Calculation/" class="text-sm font-medium text-accent inline-flex items-center uppercase tracking-wider">
-                        Explore Risk <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        View Models & Notes <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
 
@@ -212,19 +264,19 @@
                         Calculations determining a firm's Weighted Average Cost of Capital, featuring a detailed model for Wipro Limited.
                     </p>
                     <a href="./notes/WACC/" class="text-sm font-medium text-accent inline-flex items-center uppercase tracking-wider">
-                        Explore WACC <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        View Models & Notes <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
                 
-                <!-- Github Repo Link Card -->
+                <!-- Digital Vault Repo Link Card -->
                 <div class="work-card opacity-0 bg-accent/5 border border-accent/20 p-8 chamfer card-hover-effect flex flex-col h-full justify-center items-center text-center group" style="transition-delay: 500ms;">
                     <div class="w-16 h-16 mb-4 bg-accent/10 flex items-center justify-center chamfer-sm text-accent">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.376.202 2.394.1 2.646.64.698 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Full Repository</h3>
-                    <p class="text-sm text-slate-400 mb-6">Access all raw Excel models, PDFs, and documentation directly on GitHub.</p>
-                    <a href="https://github.com/Shivxnsh17/Equity-Research-Models" target="_blank" class="px-6 py-2 bg-accent/20 hover:bg-accent/30 text-accent font-medium text-sm transition-colors chamfer-sm">
-                        View Repository
+                    <h3 class="text-xl font-bold mb-2 text-white">Full Notes Vault</h3>
+                    <p class="text-sm text-slate-400 mb-6">Explore the interconnected graph of all my equity research notes.</p>
+                    <a href="./notes/" class="px-6 py-2 bg-accent/20 hover:bg-accent/30 text-accent font-medium text-sm transition-colors chamfer-sm">
+                        Enter Vault
                     </a>
                 </div>
             </div>
@@ -266,10 +318,10 @@
                 translateY: [50, 0],
                 opacity: [0, 1],
                 duration: 1500,
-                delay: 200
+                delay: anime.stagger(200)
             });
 
-            // Scroll Animation for Work Section
+            // Scroll Animation for Sections
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -296,7 +348,6 @@
                                 opacity: [0, 1],
                                 duration: 1000,
                                 easing: 'easeOutExpo',
-                                // Uses inline transition-delay for stagger effect if observed together
                             });
                         }
                         observer.unobserve(entry.target);
@@ -305,7 +356,7 @@
             }, observerOptions);
 
             // Observe elements
-            document.querySelector('.section-header') && observer.observe(document.querySelector('.section-header'));
+            document.querySelectorAll('.section-header').forEach(el => observer.observe(el));
             document.querySelectorAll('.work-card').forEach(card => observer.observe(card));
         });
     </script>
