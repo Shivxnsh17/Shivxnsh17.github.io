@@ -51,6 +51,8 @@ jobs:
           mv quartz/public dist/notes
           # Now overwrite the root index with the custom portfolio homepage
           cp docs/index.html dist/index.html
+          # Copy resume PDF to root so the download button works
+          cp "Shivansh.Chandra Resume.pdf" dist/
           # Copy raw Excel and PDF files into notes/ preserving structure
           find DCF DDM "Relative Valuation" "Risk Calculation" WACC -type f -name "*.xlsx" -exec cp --parents {} dist/notes/ \;
           find "Relative Valuation" -type f -name "*.pdf" -exec cp --parents {} dist/notes/ \;
