@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "shivxnsh17.github.io/notes",
+    baseUrl: "shivxnsh17.github.io",
     ignorePatterns: ["private", "templates", ".obsidian", "quartz", "docs", ".github"],
     defaultDateType: "modified",
     theme: {

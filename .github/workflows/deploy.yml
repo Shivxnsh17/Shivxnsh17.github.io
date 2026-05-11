@@ -47,10 +47,10 @@ jobs:
       - name: Prepare final deployment folder
         run: |
           mkdir dist
-          # Copy the custom portfolio homepage
-          cp docs/index.html dist/index.html
           # Move the compiled Quartz site into the notes/ folder
           mv quartz/public dist/notes
+          # Now overwrite the root index with the custom portfolio homepage
+          cp docs/index.html dist/index.html
           # Copy raw Excel and PDF files into notes/ preserving structure
           find DCF DDM "Relative Valuation" "Risk Calculation" WACC -type f -name "*.xlsx" -exec cp --parents {} dist/notes/ \;
           find "Relative Valuation" -type f -name "*.pdf" -exec cp --parents {} dist/notes/ \;
