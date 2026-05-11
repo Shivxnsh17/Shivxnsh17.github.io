@@ -4,5 +4,5 @@ This directory focuses on calculating a firm's Weighted Average Cost of Capital 
 
 ## Files Overview
 
-### 1. WACC Wipro.xlsx
+### 1. [WACC Wipro.xlsx](./WACC%20Wipro.xlsx)
 A detailed WACC calculation and component breakdown built specifically for Wipro Limited.

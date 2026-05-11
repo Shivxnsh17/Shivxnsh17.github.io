@@ -4,17 +4,17 @@ This directory contains Microsoft Excel models and practice files for performing
 
 ## Files Overview
 
-### 1. 2022.07.24 - DCF Tutorial Empty Excel.xlsx
+### 1. [2022.07.24 - DCF Tutorial Empty Excel.xlsx](./2022.07.24%20-%20DCF%20Tutorial%20Empty%20Excel.xlsx)
 A blank template used for DCF practice and learning.
 **Key Sheets:**
 - `DCF`, `WACC`, `IS` (Income Statement), `CFS` (Cash Flow Statement)
 
-### 2. DCF_Tutorial_Practice_File.xlsx
+### 2. [DCF_Tutorial_Practice_File.xlsx](./DCF_Tutorial_Practice_File.xlsx)
 A structured practice file that accompanies DCF tutorials.
 **Key Sheets:**
 - `Introduction`, `How To Build DCF`, `Assumptions`, `Historical Data`, `DCF Model`
 
-### 3. Start File DCF Exercise_v2.xlsx
+### 3. [Start File DCF Exercise_v2.xlsx](./Start%20File%20DCF%20Exercise_v2.xlsx)
 An exercise file designed for building a complete DCF model step-by-step.
 **Key Sheets:**
 - `FCF` (Free Cash Flow), `WACC`, `Terminal Value`, `Discounting`, `EV to Equity Value`, `DCF Full`
