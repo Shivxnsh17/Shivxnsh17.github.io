@@ -53,7 +53,7 @@ jobs:
           cp docs/index.html dist/index.html
           # Copy resume PDF and portrait image to root
           cp "Shivansh.Chandra Resume.pdf" dist/
-          cp docs/shivansh.jpg dist/shivansh.jpg
+          cp docs/shivansh.jpeg dist/shivansh.jpeg
           # Copy raw Excel and PDF files into notes/ preserving structure
           find DCF DDM "Relative Valuation" "Risk Calculation" WACC -type f -name "*.xlsx" -exec cp --parents {} dist/notes/ \;
           find "Relative Valuation" -type f -name "*.pdf" -exec cp --parents {} dist/notes/ \;
