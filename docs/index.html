@@ -1,350 +1,373 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivansh Chandra | Portfolio</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#0b0f19',
-                        cardBg: '#151b2b',
-                        accent: '#38bdf8', // Sky blue accent
-                        accentHover: '#0284c7'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google Fonts -->
+    <title>Shivansh Chandra | Equity Research & Financial Modeling</title>
+    <meta name="description" content="Portfolio of Shivansh Chandra — Equity Research, Financial Modeling, DCF, DDM, WACC, and Risk Calculations.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Anime.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0b0f19;
+            --card: #151b2b;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --border: rgba(255,255,255,0.07);
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0b0f19;
-            color: #f8fafc;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Chamfer Effects */
-        .chamfer {
-            clip-path: polygon(
-                20px 0, 
-                100% 0, 
-                100% calc(100% - 20px), 
-                calc(100% - 20px) 100%, 
-                0 100%, 
-                0 20px
-            );
-        }
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
 
-        .chamfer-sm {
-            clip-path: polygon(
-                10px 0, 
-                100% 0, 
-                100% calc(100% - 10px), 
-                calc(100% - 10px) 100%, 
-                0 100%, 
-                0 10px
-            );
-        }
+        /* Chamfer clip */
+        .chamfer { clip-path: polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px); }
+        .chamfer-sm { clip-path: polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px); }
+        .chamfer-btn { clip-path: polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px); }
 
-        .chamfer-btn {
-            clip-path: polygon(
-                10px 0%, 
-                100% 0%, 
-                100% calc(100% - 10px), 
-                calc(100% - 10px) 100%, 
-                0% 100%, 
-                0% 10px
-            );
+        /* ── NAVBAR ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            background: rgba(11,15,25,0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
         }
+        .nav-inner {
+            max-width: 1152px; margin: 0 auto; padding: 1rem 1.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-logo { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.03em; color: var(--text); text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* ── HERO ── */
+        #about {
+            min-height: 100vh; display: flex; align-items: center;
+            padding-top: 5rem;
         }
-        ::-webkit-scrollbar-track {
-            background: #0b0f19; 
+        .hero-inner {
+            max-width: 1152px; margin: 0 auto; padding: 0 1.5rem;
+            display: flex; align-items: center; gap: 4rem; width: 100%;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b; 
+        .hero-text { flex: 1; animation: fadeUp 0.9s ease both; }
+        .hero-badge {
+            display: inline-block; padding: 0.35rem 1rem; margin-bottom: 1.5rem;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); background: rgba(56,189,248,0.1);
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #334155; 
+        .hero-text h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.03em; }
+        .hero-text h2 { font-size: clamp(1.2rem, 3vw, 1.75rem); font-weight: 500; color: var(--muted); margin-bottom: 1.25rem; }
+        .hero-text p { font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 2.5rem; max-width: 560px; }
+        .hero-btns { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .btn-primary {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.75rem 2rem; font-size: 0.875rem; font-weight: 600;
+            color: var(--bg); background: var(--accent); text-decoration: none;
+            transition: background 0.2s;
         }
-        
-        .card-hover-effect {
-            transition: all 0.3s ease;
+        .btn-primary:hover { background: var(--accent-hover); }
+        .btn-secondary {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.75rem 2rem; font-size: 0.875rem; font-weight: 600;
+            color: var(--text); background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12); text-decoration: none;
+            transition: background 0.2s;
         }
-        .card-hover-effect:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+        .hero-img {
+            flex: 1; display: flex; justify-content: flex-end;
+            animation: fadeUp 0.9s 0.2s ease both;
+        }
+        .hero-img-frame {
+            width: 320px; height: 320px;
+            background: var(--card); border: 2px solid rgba(56,189,248,0.3);
+            overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 60px rgba(56,189,248,0.05);
+        }
+        .hero-img-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+
+        /* ── EXPERIENCE ── */
+        #experience {
+            padding: 6rem 1.5rem;
+            background: rgba(21,27,43,0.4);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .section-inner { max-width: 860px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; }
+        .section-title .accent-bar { width: 60px; height: 3px; background: var(--accent); margin: 0 auto; }
+        .exp-item {
+            position: relative; padding-left: 2rem;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+        .exp-item::before {
+            content: ''; position: absolute; left: -4px; top: 6px;
+            width: 8px; height: 8px; background: var(--accent);
+            clip-path: polygon(50% 0,100% 50%,50% 100%,0 50%);
+        }
+        .exp-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .exp-header h3 { font-size: 1.2rem; font-weight: 700; }
+        .exp-header span { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+        .exp-item ul { list-style: disc; padding-left: 1.2rem; color: var(--muted); line-height: 1.8; }
+        .exp-item ul li { margin-bottom: 0.3rem; }
+
+        /* ── PROJECTS ── */
+        #projects { padding: 6rem 1.5rem; }
+        .projects-inner { max-width: 1152px; margin: 0 auto; }
+        .projects-header { margin-bottom: 4rem; }
+        .projects-header h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; }
+        .projects-header .accent-bar { width: 60px; height: 3px; background: var(--accent); }
+        .projects-header p { margin-top: 1rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
+        }
+        .card {
+            background: var(--card); border: 1px solid var(--border);
+            padding: 2rem; display: flex; flex-direction: column; height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none; color: inherit;
+        }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .card-icon {
+            width: 48px; height: 48px; margin-bottom: 1.5rem;
+            background: rgba(56,189,248,0.1); display: flex; align-items: center;
+            justify-content: center; color: var(--accent);
+        }
+        .card-icon svg { width: 24px; height: 24px; }
+        .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; transition: color 0.2s; }
+        .card:hover h3 { color: var(--accent); }
+        .card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 1.5rem; }
+        .card-link {
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+            color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;
+        }
+        .card-link svg { width: 14px; height: 14px; transition: transform 0.2s; }
+        .card:hover .card-link svg { transform: translateX(4px); }
+
+        /* Vault card */
+        .card-vault {
+            background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.2);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 2rem; gap: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-vault:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(56,189,248,0.1); }
+        .card-vault .vault-icon { width: 64px; height: 64px; background: rgba(56,189,248,0.1); display: flex; align-items: center; justify-content: center; color: var(--accent); margin-bottom: 0.5rem; }
+        .card-vault .vault-icon svg { width: 32px; height: 32px; }
+        .card-vault h3 { font-size: 1.1rem; font-weight: 700; }
+        .card-vault p { font-size: 0.875rem; color: var(--muted); margin-bottom: 0.75rem; }
+        .btn-vault {
+            display: inline-block; padding: 0.5rem 1.5rem;
+            background: rgba(56,189,248,0.15); border: 1px solid rgba(56,189,248,0.3);
+            color: var(--accent); font-size: 0.875rem; font-weight: 600;
+            text-decoration: none; transition: background 0.2s;
+        }
+        .btn-vault:hover { background: rgba(56,189,248,0.25); }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 3rem 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1152px; margin: 0 auto;
+            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem;
+        }
+        .footer-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.03em; }
+        .footer-logo span { color: var(--accent); }
+        .footer-copy { font-size: 0.8rem; color: #475569; margin-top: 0.25rem; }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { font-size: 0.875rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text); }
+
+        /* ── ANIMATION ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-inner { flex-direction: column; gap: 2.5rem; padding-top: 2rem; }
+            .hero-img { justify-content: center; }
+            .hero-img-frame { width: 260px; height: 260px; }
         }
     </style>
 </head>
-<body class="bg-darkBg antialiased relative selection:bg-accent selection:text-white">
+<body>
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-darkBg/80 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-tighter text-white">
-                Shivansh<span class="text-accent">.</span>
-            </div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
-                <a href="#projects" class="hover:text-white transition-colors">Projects & Notes</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-            </div>
+    <nav>
+        <div class="nav-inner">
+            <a href="#about" class="nav-logo">Shivansh<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects & Notes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="about" class="relative min-h-screen flex items-center pt-20">
-        <div class="max-w-6xl mx-auto px-6 relative w-full flex flex-col md:flex-row items-center gap-16">
-            <div class="max-w-2xl hero-content opacity-0 flex-1">
-                <div class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider text-accent uppercase bg-accent/10 chamfer-sm">
-                    Financial Planning & Analysis
-                </div>
-                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4 leading-tight">
-                    Hi, I'm <span class="text-white">Shivansh Chandra.</span>
-                </h1>
-                <h2 class="text-2xl md:text-3xl text-slate-400 font-medium mb-6">
-                    Equity Research & Financial Modeling.
-                </h2>
-                <p class="text-lg text-slate-400 mb-10 leading-relaxed">
-                    I specialize in building rigorous financial models, performing deep-dive equity research, and uncovering value through fundamental analysis and risk calculations. Welcome to my digital portfolio.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#projects" class="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-darkBg bg-accent hover:bg-accentHover transition-colors chamfer-btn">
-                        View My Work
-                    </a>
-                    <!-- NOTE: Fill in your actual resume link below -->
-                    <a href="/Shivansh.Chandra Resume.pdf" download class="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors chamfer-btn">
-                        Download Resume
-                    </a>
+    <!-- Hero -->
+    <section id="about">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-badge chamfer-sm">Financial Planning &amp; Analysis</div>
+                <h1>Hi, I'm <span style="color:#fff">Shivansh Chandra.</span></h1>
+                <h2>Equity Research &amp; Financial Modeling.</h2>
+                <p>I specialize in building rigorous financial models, performing deep-dive equity research, and uncovering value through fundamental analysis and risk calculations. Welcome to my digital portfolio.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn-primary chamfer-btn">View My Work</a>
+                    <a href="/Shivansh.Chandra Resume.pdf" download class="btn-secondary chamfer-btn">Download Resume</a>
                 </div>
             </div>
-            <div class="flex-1 hero-content opacity-0 flex justify-center md:justify-end">
-                <div class="relative w-72 h-72 md:w-96 md:h-96 bg-cardBg border-2 border-accent/30 chamfer overflow-hidden shadow-2xl shadow-accent/10">
-                    <img src="/shivansh.jpeg" alt="Shivansh Chandra" class="w-full h-full object-cover" style="object-position: center 20%;" />
+            <div class="hero-img">
+                <div class="hero-img-frame chamfer">
+                    <img src="/shivansh.jpeg" alt="Shivansh Chandra" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section (Placeholder from Resume) -->
-    <section id="experience" class="py-24 bg-cardBg/30 border-y border-white/5">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="mb-16 section-header opacity-0 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
-                <div class="h-1 w-20 bg-accent chamfer-sm mx-auto"></div>
+    <!-- Experience -->
+    <section id="experience">
+        <div class="section-inner">
+            <div class="section-title fade-up">
+                <h2>Professional Experience</h2>
+                <div class="accent-bar"></div>
             </div>
-            
-            <div class="space-y-12">
-                <!-- Experience Item 1 -->
-                <div class="work-card opacity-0 relative pl-8 border-l border-white/10 before:absolute before:left-[-5px] before:top-2 before:w-2 before:h-2 before:bg-accent before:chamfer-sm">
-                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
-                        <h3 class="text-xl font-bold text-white">Finance Intern</h3>
-                        <span class="text-accent text-sm font-medium uppercase tracking-wider">Laxmi Public School | May – July 2025</span>
-                    </div>
-                    <ul class="list-disc list-outside ml-4 mt-4 text-slate-400 space-y-2">
-                        <li>Worked on Tally Prime and recorded Account Payables and Account Receivables.</li>
-                        <li>Built linear forecasting of revenue and expenses for Budgeting and Planning.</li>
-                        <li>Operated on Entab ERP for Accounts Payables.</li>
-                        <li>Created an Investing Plan for transforming Idle Cash into an Appreciating Asset using Excel.</li>
-                    </ul>
+            <div class="exp-item fade-up">
+                <div class="exp-header">
+                    <h3>Finance Intern</h3>
+                    <span>Laxmi Public School | May – July 2025</span>
                 </div>
+                <ul>
+                    <li>Worked on Tally Prime and recorded Account Payables and Account Receivables.</li>
+                    <li>Built linear forecasting of revenue and expenses for Budgeting and Planning.</li>
+                    <li>Operated on Entab ERP for Accounts Payables.</li>
+                    <li>Created an Investing Plan for transforming Idle Cash into an Appreciating Asset using Excel.</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 relative z-10">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="mb-16 section-header opacity-0">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Projects & Write-ups</h2>
-                <div class="h-1 w-20 bg-accent chamfer-sm"></div>
-                <p class="mt-4 text-slate-400 max-w-2xl">
-                    A collection of my financial models, documentation, and raw `.xlsx` files. These links connect directly to my interactive Quartz digital vault.
-                </p>
+    <!-- Projects -->
+    <section id="projects">
+        <div class="projects-inner">
+            <div class="projects-header fade-up">
+                <h2>Projects &amp; Write-ups</h2>
+                <div class="accent-bar"></div>
+                <p>A collection of my financial models, documentation, and raw <code style="font-size:0.8rem;color:var(--accent)">.xlsx</code> files. These links connect directly to my interactive Quartz digital vault.</p>
             </div>
+            <div class="grid">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- DCF Card -->
-                <div class="work-card opacity-0 bg-cardBg border border-white/5 p-8 chamfer card-hover-effect flex flex-col h-full group">
-                    <div class="w-12 h-12 mb-6 bg-accent/10 flex items-center justify-center chamfer-sm text-accent">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <!-- DCF -->
+                <div class="card chamfer fade-up">
+                    <div class="card-icon chamfer-sm">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors">Discounted Cash Flow</h3>
-                    <p class="text-sm text-slate-400 mb-6 flex-grow">
-                        Comprehensive DCF models, practice tutorials, and step-by-step valuation exercises. Includes raw Excel models.
-                    </p>
-                    <a href="./notes/DCF/" class="text-sm font-medium text-accent inline-flex items-center uppercase tracking-wider">
-                        View Models & Notes <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
+                    <h3>Discounted Cash Flow</h3>
+                    <p>Comprehensive DCF models, practice tutorials, and step-by-step valuation exercises. Includes raw Excel models.</p>
+                    <a href="./notes/DCF/" class="card-link">View Models &amp; Notes <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
                 </div>
 
-                <!-- DDM Card -->
-                <div class="work-card opacity-0 bg-cardBg border border-white/5 p-8 chamfer card-hover-effect flex flex-col h-full group" style="transition-delay: 100ms;">
-                    <div class="w-12 h-12 mb-6 bg-accent/10 flex items-center justify-center chamfer-sm text-accent">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                <!-- DDM -->
+                <div class="card chamfer fade-up" style="transition-delay:80ms">
+                    <div class="card-icon chamfer-sm">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors">Dividend Discount Model</h3>
-                    <p class="text-sm text-slate-400 mb-6 flex-grow">
-                        Valuation models built on future dividend payments discounted to present value. Features ITC, Coal India, BHEL, etc.
-                    </p>
-                    <a href="./notes/DDM/" class="text-sm font-medium text-accent inline-flex items-center uppercase tracking-wider">
-                        View Models & Notes <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
+                    <h3>Dividend Discount Model</h3>
+                    <p>Valuation models built on future dividend payments discounted to present value. Features ITC, Coal India, BHEL, etc.</p>
+                    <a href="./notes/DDM/" class="card-link">View Models &amp; Notes <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
                 </div>
 
-                <!-- Relative Valuation Card -->
-                <div class="work-card opacity-0 bg-cardBg border border-white/5 p-8 chamfer card-hover-effect flex flex-col h-full group" style="transition-delay: 200ms;">
-                    <div class="w-12 h-12 mb-6 bg-accent/10 flex items-center justify-center chamfer-sm text-accent">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                <!-- Relative Valuation -->
+                <div class="card chamfer fade-up" style="transition-delay:160ms">
+                    <div class="card-icon chamfer-sm">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors">Relative Valuation</h3>
-                    <p class="text-sm text-slate-400 mb-6 flex-grow">
-                        Comparable company analysis based on multiples (P/E, EV/EBITDA) across sectors like Pharma and Automotive.
-                    </p>
-                    <a href="./notes/Relative-Valuation/" class="text-sm font-medium text-accent inline-flex items-center uppercase tracking-wider">
-                        View Models & Notes <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
+                    <h3>Relative Valuation</h3>
+                    <p>Comparable company analysis based on multiples (P/E, EV/EBITDA) across sectors like Pharma and Automotive.</p>
+                    <a href="./notes/Relative-Valuation/" class="card-link">View Models &amp; Notes <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
                 </div>
 
-                <!-- Risk Calculation Card -->
-                <div class="work-card opacity-0 bg-cardBg border border-white/5 p-8 chamfer card-hover-effect flex flex-col h-full group" style="transition-delay: 300ms;">
-                    <div class="w-12 h-12 mb-6 bg-accent/10 flex items-center justify-center chamfer-sm text-accent">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                <!-- Risk -->
+                <div class="card chamfer fade-up" style="transition-delay:240ms">
+                    <div class="card-icon chamfer-sm">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors">Risk Calculation</h3>
-                    <p class="text-sm text-slate-400 mb-6 flex-grow">
-                        Deep dive into stock performance vs Nifty 50. Includes ratio analysis (Sharpe, Treynor, Alpha) and moving averages.
-                    </p>
-                    <a href="./notes/Risk-Calculation/" class="text-sm font-medium text-accent inline-flex items-center uppercase tracking-wider">
-                        View Models & Notes <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
+                    <h3>Risk Calculation</h3>
+                    <p>Deep dive into stock performance vs Nifty 50. Includes ratio analysis (Sharpe, Treynor, Alpha) and moving averages.</p>
+                    <a href="./notes/Risk-Calculation/" class="card-link">View Models &amp; Notes <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
                 </div>
 
-                <!-- WACC Card -->
-                <div class="work-card opacity-0 bg-cardBg border border-white/5 p-8 chamfer card-hover-effect flex flex-col h-full group" style="transition-delay: 400ms;">
-                    <div class="w-12 h-12 mb-6 bg-accent/10 flex items-center justify-center chamfer-sm text-accent">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                <!-- WACC -->
+                <div class="card chamfer fade-up" style="transition-delay:320ms">
+                    <div class="card-icon chamfer-sm">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors">Cost of Capital (WACC)</h3>
-                    <p class="text-sm text-slate-400 mb-6 flex-grow">
-                        Calculations determining a firm's Weighted Average Cost of Capital, featuring a detailed model for Wipro Limited.
-                    </p>
-                    <a href="./notes/WACC/" class="text-sm font-medium text-accent inline-flex items-center uppercase tracking-wider">
-                        View Models & Notes <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
+                    <h3>Cost of Capital (WACC)</h3>
+                    <p>Calculations determining a firm's Weighted Average Cost of Capital, featuring a detailed model for Wipro Limited.</p>
+                    <a href="./notes/WACC/" class="card-link">View Models &amp; Notes <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
                 </div>
-                
-                <!-- Digital Vault Repo Link Card -->
-                <div class="work-card opacity-0 bg-accent/5 border border-accent/20 p-8 chamfer card-hover-effect flex flex-col h-full justify-center items-center text-center group" style="transition-delay: 500ms;">
-                    <div class="w-16 h-16 mb-4 bg-accent/10 flex items-center justify-center chamfer-sm text-accent">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.376.202 2.394.1 2.646.64.698 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path></svg>
+
+                <!-- Vault -->
+                <div class="card-vault chamfer fade-up" style="transition-delay:400ms">
+                    <div class="vault-icon chamfer-sm">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.376.202 2.394.1 2.646.64.698 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Full Notes Vault</h3>
-                    <p class="text-sm text-slate-400 mb-6">Explore the interconnected graph of all my equity research notes.</p>
-                    <a href="./notes/" class="px-6 py-2 bg-accent/20 hover:bg-accent/30 text-accent font-medium text-sm transition-colors chamfer-sm">
-                        Enter Vault
-                    </a>
+                    <h3>Full Notes Vault</h3>
+                    <p>Explore the interconnected graph of all my equity research notes.</p>
+                    <a href="./notes/" class="btn-vault chamfer-sm">Enter Vault</a>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="py-12 border-t border-white/5 relative z-10">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <div class="text-xl font-bold tracking-tighter text-white mb-2">
-                    Shivansh<span class="text-accent">.</span>
-                </div>
-                <p class="text-sm text-slate-500">© 2026 Shivansh Chandra. All rights reserved.</p>
+    <footer id="contact">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-logo">Shivansh<span>.</span></div>
+                <p class="footer-copy">© 2026 Shivansh Chandra. All rights reserved.</p>
             </div>
-            <div class="flex space-x-6">
-                <a href="https://github.com/Shivxnsh17" target="_blank" class="text-slate-400 hover:text-white transition-colors">
-                    GitHub
-                </a>
-                <a href="#" class="text-slate-400 hover:text-white transition-colors">
-                    LinkedIn
-                </a>
-                <a href="mailto:contact@shivansh.com" class="text-slate-400 hover:text-white transition-colors">
-                    Email
-                </a>
+            <div class="footer-links">
+                <a href="https://github.com/Shivxnsh17" target="_blank" rel="noopener">GitHub</a>
+                <a href="#" >LinkedIn</a>
+                <a href="mailto:contact@shivansh.com">Email</a>
             </div>
         </div>
     </footer>
 
-    <!-- Animations Setup -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initial Hero Animation
-            anime.timeline({
-                easing: 'easeOutExpo'
-            })
-            .add({
-                targets: '.hero-content',
-                translateY: [50, 0],
-                opacity: [0, 1],
-                duration: 1500,
-                delay: anime.stagger(200)
+        // Scroll-triggered fade-up
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
             });
-
-            // Scroll Animation for Sections
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (entry.target.classList.contains('section-header')) {
-                            anime({
-                                targets: entry.target,
-                                translateY: [30, 0],
-                                opacity: [0, 1],
-                                duration: 1000,
-                                easing: 'easeOutExpo'
-                            });
-                        }
-                        
-                        if (entry.target.classList.contains('work-card')) {
-                            anime({
-                                targets: entry.target,
-                                translateY: [50, 0],
-                                opacity: [0, 1],
-                                duration: 1000,
-                                easing: 'easeOutExpo',
-                            });
-                        }
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // Observe elements
-            document.querySelectorAll('.section-header').forEach(el => observer.observe(el));
-            document.querySelectorAll('.work-card').forEach(card => observer.observe(card));
-        });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
