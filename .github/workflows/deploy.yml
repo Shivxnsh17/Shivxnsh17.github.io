@@ -34,7 +34,7 @@ jobs:
       - name: Prepare Content
         run: |
           mkdir build_content
-          cp -r "DCF" "DDM" "Relative Valuation" "Risk Calculation" "WACC" README.md build_content/
+          cp -r "DCF" "DDM" "Full Model" "Relative Valuation" "Risk Calculation" "WACC" README.md build_content/
           # Rename all README.md files to index.md so Quartz treats them as folder landing pages
           find build_content -name "README.md" -execdir mv {} index.md \;
 
@@ -54,8 +54,10 @@ jobs:
           # Copy resume PDF and portrait image to root
           cp "Shivansh.Chandra Resume.pdf" dist/
           cp docs/shivansh.jpeg dist/shivansh.jpeg
+          # Copy Equity Derivatives certificate to root
+          cp "Equity Derivatives.pdf" dist/
           # Copy raw Excel and PDF files into notes/ preserving structure
-          find DCF DDM "Relative Valuation" "Risk Calculation" WACC -type f -name "*.xlsx" -exec cp --parents {} dist/notes/ \;
+          find DCF DDM "Full Model" "Relative Valuation" "Risk Calculation" WACC -type f -name "*.xlsx" -exec cp --parents {} dist/notes/ \;
           find "Relative Valuation" -type f -name "*.pdf" -exec cp --parents {} dist/notes/ \;
 
       - name: Setup Pages

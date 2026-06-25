@@ -31,7 +31,11 @@ Models dedicated to evaluating stock performance, fundamentals, and risk against
 - **`Stocks Vs. Nifty 50 Ratio Analysis.xlsx`**: Detailed financial ratio analysis comparing individual stocks to the broader market index.
 - **`Stocks Vs. Nifty 50.xlsx`**: High-level comparison and risk assessment of selected stocks against Nifty 50.
 
-### 5. [WACC (Weighted Average Cost of Capital)](./WACC/README.md)
+### 5. [Full Model (Three-Statement Forecasting & Valuation)](./Full%20Model/README.md)
+Contains complete, integrated three-statement financial models and valuations.
+- **`Tata Consumer Financial Model 14.05.2026.xlsx`**: Full financial forecasting and valuation model for Tata Consumer Products.
+
+### 6. [WACC (Weighted Average Cost of Capital)](./WACC/README.md)
 Calculations for determining a firm's cost of capital, an essential input for discounting cash flows in DCF and other valuation models.
 - **`WACC Wipro.xlsx`**: Detailed WACC calculation and component breakdown for Wipro Limited.
 

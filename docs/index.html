@@ -127,6 +127,107 @@
         .exp-item ul { list-style: disc; padding-left: 1.2rem; color: var(--muted); line-height: 1.8; }
         .exp-item ul li { margin-bottom: 0.3rem; }
 
+        /* ── CERTIFICATIONS ── */
+        #certifications {
+            padding: 6rem 1.5rem;
+            background: rgba(21,27,43,0.4);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .cert-inner {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .cert-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .cert-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .cert-icon-box {
+            width: 56px;
+            height: 56px;
+            background: rgba(56,189,248,0.1);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cert-icon-box svg {
+            width: 28px;
+            height: 28px;
+        }
+        .cert-details h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .cert-details .issuer {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 0.25rem;
+        }
+        .cert-meta {
+            font-size: 0.8rem;
+            color: var(--muted);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .cert-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .cert-meta strong {
+            color: var(--accent);
+        }
+        .btn-cert {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.75rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--bg);
+            background: var(--accent);
+            text-decoration: none;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .btn-cert:hover {
+            background: var(--accent-hover);
+        }
+
+        @media (max-width: 768px) {
+            .cert-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+            .cert-left {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .btn-cert {
+                width: 100%;
+            }
+        }
+
         /* ── PROJECTS ── */
         #projects { padding: 6rem 1.5rem; }
         .projects-inner { max-width: 1152px; margin: 0 auto; }
@@ -222,6 +323,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects & Notes</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -267,6 +369,37 @@
                     <li>Operated on Entab ERP for Accounts Payables.</li>
                     <li>Created an Investing Plan for transforming Idle Cash into an Appreciating Asset using Excel.</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications">
+        <div class="section-inner">
+            <div class="section-title fade-up">
+                <h2>Certifications</h2>
+                <div class="accent-bar"></div>
+            </div>
+            <div class="cert-inner fade-up">
+                <div class="cert-card chamfer">
+                    <div class="cert-left">
+                        <div class="cert-icon-box chamfer-sm">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="square" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                            </svg>
+                        </div>
+                        <div class="cert-details">
+                            <h3>NISM Series VIII: Equity Derivatives Certification</h3>
+                            <p class="issuer">National Institute of Securities Markets (NISM)</p>
+                            <div class="cert-meta">
+                                <span>Score: <strong>82.75%</strong></span>
+                                <span>Verification ID: <strong>NISM-202600092219</strong></span>
+                                <span>Issued: <strong>June 2026</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/Equity Derivatives.pdf" target="_blank" class="btn-cert chamfer-btn">View Certificate</a>
+                </div>
             </div>
         </div>
     </section>
@@ -329,6 +462,16 @@
                     <h3>Cost of Capital (WACC)</h3>
                     <p>Calculations determining a firm's Weighted Average Cost of Capital, featuring a detailed model for Wipro Limited.</p>
                     <a href="./notes/WACC/" class="card-link">View Models &amp; Notes <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+                </div>
+
+                <!-- Full Model -->
+                <div class="card chamfer fade-up" style="transition-delay:360ms">
+                    <div class="card-icon chamfer-sm">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H3m18 0h-2a4 4 0 00-4 4v2m-2 4h.01M9 21h6m-3-9V3m0 0l3 3m-3-3L9 6"/></svg>
+                    </div>
+                    <h3>Full Financial Model</h3>
+                    <p>Comprehensive three-statement forecasting and valuation models. Features Tata Consumer Products.</p>
+                    <a href="./notes/Full-Model/" class="card-link">View Models &amp; Notes <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
                 </div>
 
                 <!-- Vault -->

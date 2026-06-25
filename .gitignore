@@ -9,3 +9,8 @@ Relative Valuation/Annual reports/Max Hospitals.pdf
 Relative Valuation/Annual reports/Narayana Health.pdf
 Relative Valuation/Annual reports/Nestle.pdf
 Relative Valuation/Annual reports/Tata Consumer.pdf
+
+# Temporary and local build folders
+scratch/
+build_content/
+

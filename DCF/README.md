@@ -5,5 +5,7 @@ This directory contains Microsoft Excel models and practice files for performing
 ## Models
 
 - [[2022.07.24 - DCF Tutorial Empty Excel]] - A blank template used for DCF practice and learning.
+- [[Adani Power]] - Discounted Cash Flow (DCF) model for Adani Power.
 - [[DCF_Tutorial_Practice_File]] - A structured practice file that accompanies DCF tutorials.
 - [[Start File DCF Exercise_v2]] - An exercise file designed for building a complete DCF model step-by-step.
+- [[Titan DCF]] - Discounted Cash Flow (DCF) model for Titan.
