@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "shivxnsh17.github.io",
-    ignorePatterns: ["private", "templates", ".obsidian", "quartz", "docs", ".github"],
+    ignorePatterns: ["private", "templates", ".obsidian", "quartz", "docs", ".github", "scratch", "build_content", "node_modules"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
