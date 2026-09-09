@@ -6,31 +6,29 @@ function RenderExcel() {
 
 RenderExcel.afterDOMLoaded = `
   document.addEventListener("nav", () => {
-    // Check if this page is marked view-only (has the comment in the source)
-    const isViewOnly = document.body.innerHTML.includes('view-only: no download link intentional');
+    // Quartz renders [!CAUTION] as a div with data-callout="caution"
+    // Use this as the view-only signal instead of an HTML comment (which gets stripped)
+    const isViewOnly = !!document.querySelector('[data-callout="caution"]');
 
     document.querySelectorAll('a[href$=".xlsx"]').forEach(link => {
-      // Check if we already processed this link
       if (link.dataset.excelRendered) return;
       link.dataset.excelRendered = "true";
       
       const url = new URL(link.getAttribute('href'), window.location.href).href;
       const viewerUrl = "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(url);
       
-      // Find the block-level parent (h1-h6, p, li)
+      // Find the block-level parent
       let blockParent = link;
       while (blockParent && !['H1','H2','H3','H4','H5','H6','P','LI'].includes(blockParent.tagName)) {
           if (blockParent === document.body || blockParent.parentElement === null) break;
           blockParent = blockParent.parentElement;
       }
       
-      // Insert the iframe AFTER the description text.
+      // Insert after the description block
       let insertAfterNode = blockParent;
       while (insertAfterNode.nextElementSibling) {
           let next = insertAfterNode.nextElementSibling;
-          if (['H1','H2','H3','H4','H5','H6','HR'].includes(next.tagName)) {
-              break;
-          }
+          if (['H1','H2','H3','H4','H5','H6','HR'].includes(next.tagName)) break;
           insertAfterNode = next;
       }
       
@@ -47,12 +45,8 @@ RenderExcel.afterDOMLoaded = `
       iframe.height = "500px";
       iframe.style.border = "1px solid rgba(255, 255, 255, 0.1)";
       iframe.style.borderRadius = "8px";
-      // Prevent right-click save on the iframe
-      iframe.addEventListener('contextmenu', e => e.preventDefault());
-      
       container.appendChild(iframe);
 
-      // Only show download button if NOT view-only
       if (!isViewOnly) {
         const downloadBtn = document.createElement('a');
         downloadBtn.href = link.getAttribute('href');
@@ -70,7 +64,6 @@ RenderExcel.afterDOMLoaded = `
         downloadBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download File';
         container.appendChild(downloadBtn);
       } else {
-        // View-only badge
         const badge = document.createElement('div');
         badge.style.display = "inline-flex";
         badge.style.alignItems = "center";
